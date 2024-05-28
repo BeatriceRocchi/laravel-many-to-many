@@ -11,7 +11,7 @@
             </li>
             <li>
                 <i class="fa-solid fa-tag"></i>
-                <a href="{{ route('admin.projects_type') }}">Projects by type</a>
+                <a href="{{ route('admin.projects-type') }}">Projects by type</a>
             </li>
             <li>
                 <i class="fa-solid fa-folder-plus"></i>

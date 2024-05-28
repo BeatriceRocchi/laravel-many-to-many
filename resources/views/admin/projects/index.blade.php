@@ -61,15 +61,22 @@
                     @forelse ($projects as $project)
                         <tr>
                             <td scope="row">{{ $project->id }}</td>
+
                             <td class="text-nowrap text-uppercase fw-semibold">{{ $project->title }}</td>
-                            <td class="text-nowrap">{{ $project->type?->name }}</td>
+
+                            <td class="text-nowrap">
+                                <a href="{{ route('admin.type-filter', $project->type) }}">{{ $project->type->name }}</a>
+                            </td>
+
                             <td>
                                 @forelse ($project->technologies as $technology)
-                                    <span class="badge text-bg-primary mx-1">{{ $technology->name }}</span>
+                                    <a href="{{ route('admin.tech-filter', $technology) }}"><span
+                                            class="badge text-bg-primary mx-1">{{ $technology->name }}</span></a>
                                 @empty
                                     N/A
                                 @endforelse
                             </td>
+
                             <td>{{ $project->description }}</td>
                             <td>
                                 <div class="thumb-custom text-center">

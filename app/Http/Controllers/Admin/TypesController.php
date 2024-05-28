@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Type;
+use App\Models\Project;
 use App\Functions\Helper;
 use App\Http\Requests\TypeRequest;
 
@@ -99,5 +100,11 @@ class TypesController extends Controller
     {
         $types = Type::all();
         return view('admin.types.types-projects', compact('types'));
+    }
+
+    public function typeFilter(Type $type)
+    {
+        $projects = $type->projects;
+        return view('admin.types.type-filter', compact('projects', 'type'));
     }
 }

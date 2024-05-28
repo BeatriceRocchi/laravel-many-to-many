@@ -94,4 +94,12 @@ class TechnologiesController extends Controller
 
         return redirect()->route('admin.technologies.index')->with('delete_msg', 'The technology ' . $technology->name . ' has been successfully removed from the list');
     }
+
+
+
+    public function techFilter(Technology $technology)
+    {
+        $projects = $technology->projects;
+        return view('admin.technologies.tech-filter', compact('projects', 'technology'));
+    }
 }
