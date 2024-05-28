@@ -33,7 +33,19 @@
                         {{ $message }}
                     </div>
                 @enderror
+            </div>
 
+            {{-- Data input --}}
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date"
+                    value="{{ old('date', $project?->date) }}">
+
+                @error('date')
+                    <div id="date" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             {{-- Type select --}}
