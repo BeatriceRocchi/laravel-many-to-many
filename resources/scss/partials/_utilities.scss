@@ -1,0 +1,48 @@
+.btn-custom-primary {
+    background-color: $color-primary;
+    color: white;
+
+    &:hover {
+        background-color: darken($color-primary, 5%);
+        color: white;
+    }
+}
+
+.btn-custom-primary-rev {
+    background-color: white;
+    color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover {
+        background-color: $color-primary;
+        color: white;
+    }
+}
+
+.btn-custom-secondary {
+    background-color: $color-secondary;
+    color: white;
+
+    &:hover {
+        background-color: darken($color-secondary, 5%);
+        color: white;
+    }
+}
+
+.btn-link-custom {
+    width: 40px;
+    height: 40px;
+}
+
+.projects-link-custom {
+    line-height: 2rem;
+
+    &:hover {
+        color: $color-primary;
+    }
+}
+
+.thumb-custom {
+    width: 300px;
+    height: auto;
+}
