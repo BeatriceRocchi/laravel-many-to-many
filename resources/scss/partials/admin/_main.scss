@@ -67,6 +67,12 @@
                 border: 5px solid $color-primary;
                 background-color: $color-primary;
                 border-radius: 50%;
+
+                &:hover {
+                    background-color: white;
+                    color: $color-primary;
+                    border-color: white;
+                }
             }
         }
     }
