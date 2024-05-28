@@ -14,12 +14,18 @@
                 <p>{{ $project->description }}</p>
 
                 @if ($project->type)
-                    <div class="text-end">
-                        <span class="badge rounded-pill text-bg-primary">{{ $project->type->name }}</span>
+                    <div class="my-4">Type: {{ $project->type->name }}</div>
+                @endif
+
+                @if ($project->technologies)
+                    <div class="d-flex justify-content-end">
+                        @foreach ($project->technologies as $technology)
+                            <span class="badge text-bg-primary mx-1">{{ $technology->name }}</span>
+                        @endforeach
                     </div>
                 @endif
 
-                <div class="d-flex">
+                <div class="d-flex mt-4">
                     <a href="{{ route('admin.projects.index') }}" class="btn btn-custom-primary btn-link-custom me-2">
                         <i class="fa-solid fa-arrow-rotate-left"></i>
                     </a>
