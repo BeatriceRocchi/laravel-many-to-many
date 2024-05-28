@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Http\Requests\ProjectRequest;
 use App\Functions\Helper;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,8 +42,9 @@ class ProjectsController extends Controller
         $title_text = 'Add a new project';
         $project = null;
         $types = Type::orderBy('name')->get();
+        $technologies = Technology::orderBy('name')->get();
 
-        return view('admin.projects.create-edit', compact('route', 'method', 'title_text', 'project', 'types'));
+        return view('admin.projects.create-edit', compact('route', 'method', 'title_text', 'project', 'types', 'technologies'));
     }
 
     /**
@@ -64,6 +66,10 @@ class ProjectsController extends Controller
 
         $new_project->save();
 
+        if (array_key_exists('technologies', $form_data)) {
+            $new_project->technologies()->attach($form_data['technologies']);
+        }
+
         return redirect()->route('admin.projects.show', $new_project);
     }
 
@@ -84,8 +90,9 @@ class ProjectsController extends Controller
         $method = 'PUT';
         $title_text = 'Edit project';
         $types = Type::orderBy('name')->get();
+        $technologies = Technology::orderBy('name')->get();
 
-        return view('admin.projects.create-edit', compact('route', 'method', 'title_text', 'project', 'types'));
+        return view('admin.projects.create-edit', compact('route', 'method', 'title_text', 'project', 'types', 'technologies'));
     }
 
     /**
@@ -107,6 +114,12 @@ class ProjectsController extends Controller
         }
 
         $project->update($form_data);
+
+        if (array_key_exists('technologies', $form_data)) {
+            $project->technologies()->sync($form_data['technologies']);
+        } else {
+            $project->technologies()->detach();
+        }
 
         return redirect()->route('admin.projects.show', $project);
     }

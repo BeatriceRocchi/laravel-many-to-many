@@ -8,7 +8,7 @@
     }
 }
 
-.btn-custom-primary-rev {
+.btn-custom-primary-outline {
     background-color: white;
     color: $color-primary;
     border-color: $color-primary;
@@ -17,6 +17,12 @@
         background-color: $color-primary;
         color: white;
     }
+}
+
+.btn-check:checked + .btn-check-custom,
+.btn-check:hover + .btn-check-custom {
+    background-color: $color-primary;
+    color: white;
 }
 
 .btn-custom-secondary {

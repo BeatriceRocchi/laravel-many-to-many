@@ -23,7 +23,7 @@
                         </label>
                     </div>
                 @endforeach
-                <button class="btn btn-custom-primary-rev w-auto" type="submit">Find</button>
+                <button class="btn btn-custom-primary-outline w-auto" type="submit">Find</button>
             </form>
 
             <table class="table table-hover">

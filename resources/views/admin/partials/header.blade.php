@@ -15,7 +15,7 @@
                 method="GET">
                 <input class="form-control form-control-custom me-2" type="search" placeholder="Search a project"
                     aria-label="Search" name="toSearch">
-                <button class="btn btn-custom-primary-rev" type="submit">
+                <button class="btn btn-custom-primary-outline" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>

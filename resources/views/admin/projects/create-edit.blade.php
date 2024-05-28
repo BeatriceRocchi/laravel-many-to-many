@@ -46,7 +46,20 @@
                             {{ $type->name }}</option>
                     @endforeach
                 </select>
+            </div>
 
+            {{-- Technologies checkbox --}}
+            <div class="mb-3">
+                <div class="btn-group" role="group">
+                    @foreach ($technologies as $technology)
+                        <input type="checkbox" class="btn-check" id="tech_{{ $technology->id }}" name="technologies[]"
+                            value="{{ $technology->id }}" @if (
+                                ($errors->any() && in_array($technology->id, old('technologies', []))) ||
+                                    (!$errors->any() && $project?->technologies->contains($technology))) checked @endif>
+                        <label class="btn btn-custom-primary-outline btn-check-custom w-auto"
+                            for="tech_{{ $technology->id }}">{{ $technology->name }}</label>
+                    @endforeach
+                </div>
             </div>
 
             {{-- Description textarea --}}
