@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            DefaultUsersTableSeeder::class,
             TypesTableSeeder::class,
             TechnologiesTableSeeder::class,
             ProjectsTableSeeder::class,

@@ -21,4 +21,6 @@ class ProjectTechnologyTableSeeder extends Seeder
             $project->technologies()->attach($technology_id);
         }
     }
+
+    // TODO: per sito portfolio inserire dati reali senza estrazione random
 }
