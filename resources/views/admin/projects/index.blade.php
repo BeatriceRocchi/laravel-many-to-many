@@ -51,9 +51,10 @@
                             @endif
                         </th>
                         <th scope="col">Type</th>
+                        <th scope="col" class="text-nowrap">Release month</th>
                         <th scope="col">Technologies</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Image</th>
+                        {{-- <th scope="col">Image</th> --}}
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -68,22 +69,24 @@
                                 <a href="{{ route('admin.type-filter', $project->type) }}">{{ $project->type->name }}</a>
                             </td>
 
+                            <td class="text-nowrap">{{ $project->month->name }}</td>
+
                             <td>
                                 @forelse ($project->technologies as $technology)
                                     <a href="{{ route('admin.tech-filter', $technology) }}"><span
-                                            class="badge text-bg-primary mx-1">{{ $technology->name }}</span></a>
+                                            class="badge badge-custom mx-1">{{ $technology->name }}</span></a>
                                 @empty
                                     N/A
                                 @endforelse
                             </td>
 
                             <td>{{ $project->description }}</td>
-                            <td>
+                            {{-- <td>
                                 <div class="thumb-custom text-center">
                                     <img src="{{ asset('storage/' . $project->img) }}" alt="{{ $project->title }}"
                                         onerror="this.src = '/img/img-placeholder.png'">
                                 </div>
-                            </td>
+                            </td> --}}
                             <td>
                                 <div class="d-flex">
                                     <a href="{{ route('admin.projects.show', $project) }}"

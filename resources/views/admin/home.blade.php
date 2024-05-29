@@ -47,7 +47,16 @@
                             <span class="fw-semibold">Title:</span> {{ $last_project->title }}
                         </li>
                         <li class="list-group-item">
-                            <span class="fw-semibold">Date:</span> {{ $last_project->date }}
+                            <span class="fw-semibold">Month of release:</span> {{ $last_project->month->name }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-semibold">Type:</span> {{ $last_project->type->name }}
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-semibold">Technologies:</span>
+                            @foreach ($last_project->technologies as $technology)
+                                <span class="badge badge-custom mx-1">{{ $technology->name }}</span>
+                            @endforeach
                         </li>
                         <li class="list-group-item">
                             {{ $last_project->description }}

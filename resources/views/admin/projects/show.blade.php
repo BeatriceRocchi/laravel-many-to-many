@@ -10,17 +10,19 @@
                     onerror="this.src = '/img/img-placeholder.png'">
             </div>
             <div class="card-body">
-                <h5>{{ $project->title }}</h5>
-                <p>{{ $project->description }}</p>
+                <h3>{{ $project->title }}</h3>
+
+                <p class="my-4">{{ $project->description }}</p>
 
                 @if ($project->type)
-                    <div class="my-4">Type: {{ $project->type->name }}</div>
+                    <div class="my-4"><i class="fa-solid fa-layer-group"></i> {{ $project->type->name }}</div>
                 @endif
 
                 @if ($project->technologies)
                     <div class="d-flex justify-content-end">
+                        <i class="fa-solid fa-robot"></i>
                         @foreach ($project->technologies as $technology)
-                            <span class="badge text-bg-primary mx-1">{{ $technology->name }}</span>
+                            <span class="badge badge-custom mx-1">{{ $technology->name }}</span>
                         @endforeach
                     </div>
                 @endif

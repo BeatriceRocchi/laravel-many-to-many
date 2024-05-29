@@ -54,17 +54,17 @@
 }
 
 .projects-num-cell {
-    background-color: $color-primary;
+    background-color: $color-secondary;
     border: 2px solid white;
     color: white;
     border-radius: 10px;
 
     &.high {
-        background-color: darken($color-primary, 10%);
+        background-color: darken($color-secondary, 20%);
     }
 
     &.low {
-        background-color: lighten($color-primary, 10%);
+        background-color: lighten($color-secondary, 10%);
     }
 
     &.zero {
