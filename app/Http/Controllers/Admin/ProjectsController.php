@@ -160,11 +160,7 @@ class ProjectsController extends Controller
     {
         $types_checked = $_GET['types_checked'];
 
-        foreach ($types_checked as $type) {
-            $types_checked_array[] = $type;
-        }
-
-        $projects = Project::whereIn('type_id', $types_checked_array)->get();
+        $projects = Project::whereIn('type_id', $types_checked)->get();
 
         $direction = 'desc';
         $types = Type::all();

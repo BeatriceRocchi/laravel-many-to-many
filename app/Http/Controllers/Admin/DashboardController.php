@@ -15,6 +15,8 @@ class DashboardController extends Controller
         $projects_tot = Project::count();
         $types_tot = Type::count();
         $technologies_tot = Technology::count();
-        return view('admin.home', compact('projects_tot', 'types_tot', 'technologies_tot'));
+
+        $last_project = Project::orderBy('date', 'desc')->first();
+        return view('admin.home', compact('projects_tot', 'types_tot', 'technologies_tot', 'last_project'));
     }
 }

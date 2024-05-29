@@ -22,4 +22,9 @@ class Helper
 
         return $slug;
     }
+
+    public static function formatDate($date)
+    {
+        return date_format(date_create($date), 'm/d/Y');
+    }
 }
