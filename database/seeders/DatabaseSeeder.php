@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             DefaultUsersTableSeeder::class,
             TypesTableSeeder::class,
             TechnologiesTableSeeder::class,
+            MonthsTableSeeder::class,
             ProjectsTableSeeder::class,
             ProjectTechnologyTableSeeder::class,
         ]);

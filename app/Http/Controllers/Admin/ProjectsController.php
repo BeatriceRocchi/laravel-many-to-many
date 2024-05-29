@@ -62,6 +62,14 @@ class ProjectsController extends Controller
         $form_data['slug'] = Helper::generateSlug($form_data['title'], Project::class);
 
         $new_project = new Project();
+
+        if (array_key_exists('date', $form_data)) {
+            $date_str = $form_data['date'];
+            $date_timestamp = strtotime($date_str);
+            $month = intval(date("m", $date_timestamp));
+            $new_project->month_id = $month;
+        }
+
         $new_project->fill($form_data);
 
         $new_project->save();
@@ -111,6 +119,13 @@ class ProjectsController extends Controller
         if (array_key_exists('img', $form_data)) {
             $img_path = Storage::put('uploads', $form_data['img']);
             $form_data['img'] = $img_path;
+        }
+
+        if (array_key_exists('date', $form_data)) {
+            $date_str = $form_data['date'];
+            $date_timestamp = strtotime($date_str);
+            $month = date("m", $date_timestamp);
+            $project->month_id = $month;
         }
 
         $project->update($form_data);

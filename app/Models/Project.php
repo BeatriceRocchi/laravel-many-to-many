@@ -18,6 +18,11 @@ class Project extends Model
         return $this->belongsTo(Type::class);
     }
 
+    public function month()
+    {
+        return $this->belongsTo(Month::class);
+    }
+
     public function technologies()
     {
         return $this->belongsToMany(Technology::class);

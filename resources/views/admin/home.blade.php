@@ -37,7 +37,7 @@
 
     <div class="container-fluid dashboard-data-box">
         <div class="row flex-wrap">
-            <div class="col-6">
+            <div class="col">
                 <div class="card">
                     <div class="card-header">
                         <h6 class="m-0 text-center">LAST PROJECT</h6>
@@ -55,7 +55,32 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="m-0 text-center">PROJECTS TIMELINE</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach ($months as $month)
+                                <div class="col">
+                                    {{ $month->name }}
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="row">
+                            @foreach ($months as $month)
+                                <div class="col">
+                                    {{ count($month->projects) }}
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
     </div>
 @endsection
