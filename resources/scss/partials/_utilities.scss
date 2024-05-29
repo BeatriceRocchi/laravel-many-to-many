@@ -52,3 +52,23 @@
     width: 300px;
     height: auto;
 }
+
+.projects-num-cell {
+    background-color: $color-primary;
+    border: 2px solid white;
+    color: white;
+    border-radius: 10px;
+
+    &.high {
+        background-color: darken($color-primary, 10%);
+    }
+
+    &.low {
+        background-color: lighten($color-primary, 10%);
+    }
+
+    &.zero {
+        background-color: white;
+        color: black;
+    }
+}

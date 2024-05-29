@@ -57,11 +57,11 @@
             </div>
 
             <div class="col">
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-header">
                         <h6 class="m-0 text-center">PROJECTS TIMELINE</h6>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <div class="row">
                             @foreach ($months as $month)
                                 <div class="col">
@@ -69,9 +69,11 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="row">
+                        <div class="row mt-2">
                             @foreach ($months as $month)
-                                <div class="col">
+                                <div
+                                    class="col projects-num-cell
+                                    @if (count($month->projects) == 0) zero @elseif(count($month->projects) > 1) high @else small @endif">
                                     {{ count($month->projects) }}
                                 </div>
                             @endforeach
